@@ -74,7 +74,6 @@ namespace MaciLaci_Xamarin
 
         protected override void OnResume()
         {
-            //ChangeTimer();
             Device.StartTimer(TimeSpan.FromSeconds(1), () => { TimerTick(); return TimerEnabled; });
         }
         private async void Model_GameOverMaciWonAsync(Object sender, EventArgs e)
@@ -84,23 +83,20 @@ namespace MaciLaci_Xamarin
             foreach (GameField field in _viewModel.Fields)
                 field.IsLocked = true;
 
-            bool result = await MainPage.DisplayAlert("Nyertél.", "Victory", "New Game", "Kilépés a játékból");
+            var result = await MainPage.DisplayAlert("Játék vége", "Nyertél", "New Game", "Kilépés a játékból");
 
             if (!result)
                 Environment.Exit(0);
 
-
-            _model.SetBasketGathered();
-            _viewModel.ResetBasketCounter();
-
             _model.NewGame(int.Parse(_viewModel.TableSize));
-           
+            _model.SetBasketGathered();
+
             TimerEnabled = true;
             _viewModel.TimeElapsed = 0;
+
             Device.StartTimer(TimeSpan.FromSeconds(1), () => { TimerTick(); return TimerEnabled; });
 
-            
-
+            _viewModel.ResetBasketCounter();
         }
         private async void Model_GameOverMaciLostAsync(Object sender, EventArgs e)
         {
@@ -109,7 +105,7 @@ namespace MaciLaci_Xamarin
             foreach (GameField field in _viewModel.Fields)
                 field.IsLocked = true;
 
-            var result = await MainPage.DisplayAlert("Vesztettél.","Defeat","New Game", "Kilépés a játékból");
+            var result = await MainPage.DisplayAlert("Játék vége ", "Vesztettél","New Game", "Kilépés a játékból");
             
             if (!result)
                 Environment.Exit(0);

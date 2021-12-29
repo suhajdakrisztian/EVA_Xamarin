@@ -16,6 +16,8 @@ namespace MaciLaci_Xamarin.Model
         private bool _hunterSees;
         private bool _maciWon;
 
+        private bool _GameRunning;
+
         public int FieldSize 
         {
             get => _matrix.TableSize;
@@ -57,6 +59,7 @@ namespace MaciLaci_Xamarin.Model
             }
             ReadFile(pathToFile);
             OnGameCreated();
+            _GameRunning = true;
 
         }
 
@@ -103,19 +106,16 @@ namespace MaciLaci_Xamarin.Model
             }
 
             // ha valami tortenik, itt kezeli
-            if (_gameOver && _maciWon)
+            if (_gameOver && _maciWon && _GameRunning)
             {
+                _GameRunning = false;
                 GameOverMaciWon?.Invoke(this, null);
             }
-            else if (_gameOver && _hunterSees)
+            else if (_gameOver && _hunterSees && _GameRunning)
             {
+                _GameRunning = false;
                 GameOverMaciLost?.Invoke(this, null);
             }
-
-            _gameOver = false;
-            _hunterSees = false;
-            _maciWon = false;
-
         }
         public void hunterMove(int which)
         {
@@ -138,7 +138,7 @@ namespace MaciLaci_Xamarin.Model
                     break;
                 case "down":
                     _matrix.setHunterPosition(2, Math.Min(current.Item1 + 1, _matrix.TableSize - 1), current.Item2);
-                    if (Math.Min(current.Item2 + 1, _matrix.TableSize - 1) == _matrix.TableSize - 1)
+                    if (Math.Min(current.Item1 + 1, _matrix.TableSize - 1) == _matrix.TableSize - 1)
                         _matrix.changeHunterDirection(2);
                     break;
                 case "left":

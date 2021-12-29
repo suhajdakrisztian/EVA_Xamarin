@@ -131,11 +131,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <Content Include="basket.png" />
-    <Content Include="bear.png" />
-    <Content Include="hunter.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="tree.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

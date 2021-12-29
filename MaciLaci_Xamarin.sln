@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaciLaci_XamarinTest", "MaciLaci_XamarinTest\MaciLaci_XamarinTest.csproj", "{D9578E6A-36AB-435C-AB67-845CF62EF96E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,22 @@ Global
 		{726B091C-4B8A-47EF-8B33-F5BB04AEB194}.Release|x86.ActiveCfg = Release|Any CPU
 		{726B091C-4B8A-47EF-8B33-F5BB04AEB194}.Release|x86.Build.0 = Release|Any CPU
 		{726B091C-4B8A-47EF-8B33-F5BB04AEB194}.Release|x86.Deploy.0 = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|x64.Build.0 = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Debug|x86.Build.0 = Debug|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|ARM.Build.0 = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|x64.ActiveCfg = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|x64.Build.0 = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|x86.ActiveCfg = Release|Any CPU
+		{D9578E6A-36AB-435C-AB67-845CF62EF96E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
