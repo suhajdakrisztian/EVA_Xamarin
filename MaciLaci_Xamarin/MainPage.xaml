@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" 
+             x:Class="MaciLaci_Xamarin.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- stílusok a vezérlőknek -->
+            <Style x:Key="MainLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="Margin" Value="1" />
+            </Style>
+            <Style x:Key="MainButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="BackgroundColor" Value="Brown" />
+                <Setter Property="BorderRadius" Value="1" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderColor" Value="Brown" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            
+            <Style x:Key="FieldStyle" TargetType="Button">
+                <Setter Property="Margin" Value="1" />
+                <Setter Property="WidthRequest" Value="160" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderColor" Value="Black" />
+                <Style.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsEmpty}" Value="True">
+                        <Setter Property="Background" Value="#FFFF" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsMaci}" Value="True">
+                        <Setter Property="Background" Value="#331800" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsHunter}" Value="True">
+                        <Setter Property="Background" Value="Red" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsBasket}" Value="True">
+                        <Setter Property="Background" Value="#FFCC00"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsTree}" Value="True">
+                        <Setter Property="Background" Value="Green" />
+                    </DataTrigger>
+                </Style.Triggers>
+
+            </Style> 
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- a gombokat a képernyő tetejére helyezzük -->
+
+            <StackLayout Orientation="Horizontal" Margin = "0,40,0,0">
+                
+                <Button Text="New Game/Change Table Size" Style="{StaticResource MainButtonStyle}" Command="{Binding NewGameCommand}" Grid.Row="0" HorizontalOptions="Start" />
+                
+                <Button Text="Stop/Continue Game" Style="{StaticResource MainButtonStyle}" Command="{Binding ChangeStatusCommand}" Grid.Row="0" HorizontalOptions="Center"/>
+                
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Baskets Collected:" HorizontalOptions="Start"/>
+                    <Label Text="Time Elapsed:" HorizontalOptions="Start" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding BasketsGathered}" HorizontalOptions="Start"/>
+                    <Label Text="{Binding TimeElapsed}"  HorizontalOptions="Start" />
+                </StackLayout>
+            </StackLayout>
+
+            <controls:FlowListView Grid.Row="1" FlowItemsSource="{Binding Fields}" FlowColumnCount="{Binding TableSize}"  SeparatorVisibility="None" HorizontalOptions="StartAndExpand">
+                <controls:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <Button Style="{StaticResource FieldStyle}" Command ="{Binding StepCommand}" CommandParameter="{Binding Number}" VerticalOptions="FillAndExpand"/>
+                    </DataTemplate>
+                </controls:FlowListView.FlowColumnTemplate>
+            </controls:FlowListView>
+            
+        </Grid>
+    </StackLayout>
+</ContentPage>
